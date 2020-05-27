@@ -173,14 +173,13 @@ git clone 데레사 강사님 저장소에서 url 복사 붙여놓기
 ![image-20200331124926900](C:\Users\haeri\AppData\Roaming\Typora\typora-user-images\image-20200331124926900.png)
 
 * 프리픽스 관련 용어
-  * docs : documentation
-
-  * conf : configuration
-
-  * feat : feature
-  * bugfix:bug-fix
+  * docs : documentations
+* conf : configuration
+  * feat : feature (기능 개발과 관련)
+* fix:bug-fix
+  * solve : conflict solved
   * resolve : resolved commit related to git.
-
+  
 * 빔에서 작업하기 -> vi README.md
 
   ![image-20200331141147216](C:\Users\haeri\AppData\Roaming\Typora\typora-user-images\image-20200331141147216.png)
@@ -287,6 +286,72 @@ git clone 데레사 강사님 저장소에서 url 복사 붙여놓기
      ![image-20200425102426240](C:\Users\haeri\AppData\Roaming\Typora\typora-user-images\image-20200425102426240.png)
 
 2. 클론해 온 폴더 내의 파일 수정 등의 작업
+
 3. git add .
+
 4. git commit -m "메세지 내용 입력"
+
 5. git push origin master
+
+
+
+# 5/27(수)
+
+## branch
+
+브랜치를 사용하는 이유는 내가 새로운 코드를 입력하려고 하는데 그 코드가 안전한지 어떤 문제는 없을지 확인하고 싶을 때->브랜치에서 확인 후 문제 없으면 마스터로 와서 작업하면 됨.
+
+따라서 항상 작업할 때 branch를 먼저 따는 연습
+
+
+
+- git branch 이름명 : 새로운 브랜치 생성
+
+- git branch : branch가 생성되었는지 확인
+
+- git checkout 이동하고자 하는 공간ex.폴더
+
+![image-20200527102246067](C:\Users\haeri\AppData\Roaming\Typora\typora-user-images\image-20200527102246067.png)
+
+![image-20200527102208146](C:\Users\haeri\AppData\Roaming\Typora\typora-user-images\image-20200527102208146.png)
+
+
+
+- git merge head-init : head-init에서 했던 작업이 master로 들어옴
+-  git checkout -b body-init : body-init이라는 브랜치가 존재하지 않으면 생성하고 거기로 checkout해라 : 즉 두 개 명령어의 조합(git branch body-init + git checkout body-init)
+
+
+
+원래 마스터에서는 어떤 행동도 하지 않는다. 하물며 시니어 레벨을 가도 마스터에서 작업할 일은 없을 것
+
+마스터에서 새롭게 작업한 후->브랜치에서 마스터로 접근할 때 아래와 같이 conflict 메세지가 뜸.
+
+![image-20200527111818707](C:\Users\haeri\AppData\Roaming\Typora\typora-user-images\image-20200527111818707.png)
+
+![image-20200527111923273](C:\Users\haeri\AppData\Roaming\Typora\typora-user-images\image-20200527111923273.png)
+
+
+
+* git branch -D 지우고 싶은 브랜치
+* ![image-20200527121259662](C:\Users\haeri\AppData\Roaming\Typora\typora-user-images\image-20200527121259662.png)
+
+
+
+## flow
+
+1. git flow init : 처음부터 해도 되고 개발 중간에 해도 됨
+
+-> git flow init이 성공적으로 완료되었으면 develop 브랜치가 성공적으로 뜸
+
+![image-20200527121709913](C:\Users\haeri\AppData\Roaming\Typora\typora-user-images\image-20200527121709913.png)
+
+우리는 develop에서 놀아야 되고 기능 개발을 위해서는 feature. master에서는 하면 안됨.
+
+2. git flow feature start menubar(그냥 기능 이름 아무거나) : 메뉴바를 만들기 위한 feature를 하나 땀. index.html 파일 열어서 메뉴바 만든 후 나옴.
+
+![image-20200527122413580](C:\Users\haeri\AppData\Roaming\Typora\typora-user-images\image-20200527122413580.png)
+
+3. 커밋
+4. git flow feature finish menubar
+
+![image-20200527122907663](C:\Users\haeri\AppData\Roaming\Typora\typora-user-images\image-20200527122907663.png)
